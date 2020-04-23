@@ -2,11 +2,10 @@ const   dotenv      = require("dotenv");
 dotenv.config();
 
 const   express     = require("express"),
-        db          = require("./db")
+        db          = require("./db"),
+        router      = require("./routes/router"),
         app         = express();
 
-app.get("/", (req, res) => {
-    res.send("Route is working.");
-});
+app.get("/", router);
 
 module.exports = app;
