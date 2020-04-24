@@ -1,3 +1,11 @@
-exports.login = (req, res) => {
-    res.send("Login route works");
+const   User    = require('../models/user');
+
+exports.register = (req, res) => {
+    const user = new User(req.body);
+    user.save((err, user) => {
+        if (err) {
+            return res.status(400).json({ err });
+        };
+        res.json({ user });
+    });
 };
