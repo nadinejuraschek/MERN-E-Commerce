@@ -1,8 +1,8 @@
 const   jwt             = require('jsonwebtoken'),
         expressJwt      = require('express-jwt'),
         User            = require('../models/user'),
-        errorHelper     = require('../helpers/dbErrorHandler')
-        userController  = require('../controllers/user');
+        errorHelper     = require('../helpers/user')
+        userController  = require('./auth');
 
 exports.register = (req, res) => {
     const user = new User(req.body);

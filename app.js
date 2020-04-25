@@ -6,7 +6,7 @@ const   express         = require('express'),
         cookieParser    = require('cookie-parser'),
         validator       = require('express-validator'),
         db              = require('./db'),
-        userRouter      = require('./routes/user'),
+        authRouter      = require('./routes/auth'),
         app             = express();
 
 // MIDDLEWARE
@@ -17,6 +17,6 @@ app.use(cookieParser());
 app.use(validator());
 
 // ROUTES
-app.use('/api', userRouter);
+app.use('/api', authRouter);
 
 module.exports = app;
