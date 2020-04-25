@@ -1,14 +1,3 @@
-const   dotenv          = require('dotenv');
-dotenv.config();
-
-const   express         = require('express'),
-        morgan          = require('morgan'),
-        cookieParser    = require('cookie-parser'),
-        db              = require('./db'),
-        userRouter      = require('./routes/user'),
-        app             = express();
-
-// CONTENT
 "use strict";
  
 /**
@@ -56,15 +45,3 @@ exports.errorHandler = error => {
  
     return message;
 };
-
-
-// MIDDLEWARE
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser());
-
-// ROUTES
-app.use('/api', userRouter);
-
-module.exports = app;

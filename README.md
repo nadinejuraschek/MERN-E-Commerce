@@ -7,8 +7,7 @@
     * express
     * dotenv
     * morgan
-    * crypto
-    * uuidv1
+    * bcrypt
     * cookieParser
 * MongoDB
     * mongoose
