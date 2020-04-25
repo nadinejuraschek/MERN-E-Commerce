@@ -4,5 +4,7 @@ const   express         = require('express'),
         validator       = require('../validator');
 
 router.post('/register', validator.userRegisterValidator, userController.register);
+router.post('/login', userController.login);
+router.get('/logout', userController.logout);
 
 module.exports = router;
