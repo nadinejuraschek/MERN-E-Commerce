@@ -2,7 +2,7 @@ const   jwt             = require('jsonwebtoken'),
         expressJwt      = require('express-jwt'),
         User            = require('../models/user'),
         errorHelper     = require('../helpers/user')
-        userController  = require('./auth');
+        authController  = require('./auth');
 
 exports.register = (req, res) => {
     const user = new User(req.body);
@@ -26,7 +26,7 @@ exports.login = (req, res) => {
                 err: 'User with this e-mail does not exist. Please register.'
             });
         };
-        if (!user.userController.authenticate(password)) {
+        if (!user.authController.authenticate(password)) {
             return res.status(401).json({ 
                 error: 'E-Mail and Password do not match.'
             });
