@@ -6,7 +6,7 @@ exports.register = (req, res) => {
     user.save((err, user) => {
         if (err) {
             return res.status(400).json({
-                err: userController.errorHandler(err);
+                err: userController.errorHandler(err)
             });
         };
         user.salt = undefined;
