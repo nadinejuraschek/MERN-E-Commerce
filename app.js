@@ -8,7 +8,8 @@ const   express         = require('express'),
         db              = require('./db'),
         authRouter      = require('./routes/auth'),
         userRouter      = require('./routes/user'),
-        categoryRouter      = require('./routes/category'),
+        categoryRouter  = require('./routes/category'),
+        productRouter   = require('./routes/product'),
         app             = express();
 
 // MIDDLEWARE
@@ -22,5 +23,6 @@ app.use(validator());
 app.use('/api', authRouter);
 app.use('/api', userRouter);
 app.use('/api', categoryRouter);
+app.use('/api', productRouter);
 
 module.exports = app;
