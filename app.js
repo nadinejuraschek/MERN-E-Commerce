@@ -7,6 +7,7 @@ const   express         = require('express'),
         validator       = require('express-validator'),
         db              = require('./db'),
         authRouter      = require('./routes/auth'),
+        userRouter      = require('./routes/user'),
         app             = express();
 
 // MIDDLEWARE
@@ -18,5 +19,6 @@ app.use(validator());
 
 // ROUTES
 app.use('/api', authRouter);
+app.use('/api', userRouter);
 
 module.exports = app;
