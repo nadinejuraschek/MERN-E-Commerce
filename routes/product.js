@@ -7,5 +7,6 @@ const   express             = require('express'),
 router.post('/product/create/:userid', requireLogin, isAuth, isAdmin, categoryController.create);
 
 router.param('userid', userById);
+router.param('productid', productById);
 
 module.exports = router;

@@ -4,6 +4,11 @@ const   formidable  = require('formidable'),
         Product     = require('../models/product'),
         errorHelper = require('../helpers/dbErrorHandler');
 
+exports.productById = (req, res, next, id) => {
+    Product.findById(id).execute().
+    
+};
+
 exports.create = (req, res) => {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
