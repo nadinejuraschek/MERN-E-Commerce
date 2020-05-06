@@ -15,6 +15,8 @@ mongoose.connect(
         module.exports = client;
         console.log('DB is connected.');
         const app = require('./app');
-        app.listen(process.env.PORT);
+        app.listen(process.env.PORT, function() {
+            console.log(`Server is listening on ${process.env.PORT}.`);
+        });
     })
     .catch(err => console.log(`DB connection error: ${err.message}`));

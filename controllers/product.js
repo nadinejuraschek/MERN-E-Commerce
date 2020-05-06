@@ -1,11 +1,19 @@
 const   formidable  = require('formidable'),
-        lodash      = require('lodash'),
+        _           = require('lodash'),
         fs          = require('fs'),
         Product     = require('../models/product'),
         errorHelper = require('../helpers/dbErrorHandler');
 
 exports.productById = (req, res, next, id) => {
-    Product.findById(id).execute().
+    Product.findById(id).exec((err, product) => {
+        if (err || !product) {
+            return res.status(400).json({
+                error: 'Product not found.'
+            });
+        };
+        req.product = product;
+        next();
+    });
     
 };
 
@@ -41,10 +49,15 @@ exports.create = (req, res) => {
         product.save((err, result) => {
             if (err) {
                 return res.status(400).json({
-                    error: errorHelper.errorHandler(err);
+                    error: errorHelper.errorHandler(err)
                 });
             };
             res.json(result);
         });
     });
+};
+
+exports.read = (req, res) => {
+    req.product.photo = undefined;
+    return res.json(req.product);
 };

@@ -4,8 +4,8 @@ const   express             = require('express'),
         authController      = require('../controllers/auth'),
         userController      = require('../controllers/user');
 
-router.post('/category/create/:userid', requireLogin, isAuth, isAdmin, categoryController.create);
+router.post('/category/create/:userid', authController.requireLogin, authController.isAuth, authController.isAdmin, categoryController.create);
 
-router.param('userid', userById);
+// router.param('userid', userById);
 
 module.exports = router;

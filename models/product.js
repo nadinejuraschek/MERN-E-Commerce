@@ -1,4 +1,4 @@
-const   mongoose        = require('mongoose')
+const   mongoose        = require('mongoose'),
         { ObjectId }    = mongoose.Schema;
 
 const productSchema = new mongoose.Schema({
