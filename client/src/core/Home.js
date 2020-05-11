@@ -1,9 +1,12 @@
 // REACT
 import React from 'react';
 
+// COMPONENTS
+import Layout from './Layout';
+
 const Home = () => {
     return (
-        <div>Home</div>
+        <Layout title='Homepage' description='MERN E-Commerce App'></Layout>
     );
 };
 
