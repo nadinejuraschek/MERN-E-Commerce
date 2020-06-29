@@ -1,4 +1,5 @@
 # MERN-E-Commerce
+-- Currently in Development --
 
 ## Technologies
 * JavaScript
